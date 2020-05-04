@@ -11,8 +11,8 @@ function init() {
     var mons = document.getElementById("monsters");
 
     mons.addEventListener("click", function(){
-        alert("hello");
-    })
+        alert(`${deck.monsters}`);
+    });
 
     
 
