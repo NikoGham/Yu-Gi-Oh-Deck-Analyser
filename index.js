@@ -5,11 +5,10 @@ function init() {
     document.body.appendChild(btn);
     // Don't have to go through this process to add ID but oh well // 
     var list = document.getElementsByTagName("button")[0];
-
     list.id ="monsters";
 // to here // 
     var mons = document.getElementById("monsters");
-    
+// methods called with return - also using ES6 // 
     mons.addEventListener("click", function(){
         return deck.monsterNumber();
     });
@@ -22,17 +21,18 @@ function init() {
     btn1.id = "magics";
     var mag = document.getElementById("magics");
     mag.addEventListener("click", function() {
-        alert(`${deck.magics}`);
+        return deck.magicNumber();
     });
 
 // Trap Button // 
+
     var btn2 = document.createElement("BUTTON");
     btn2.innerHTML = "Traps";
     document.body.appendChild(btn2);
     btn2.id = "traps";
     var tra = document.getElementById("traps");
     tra.addEventListener("click", function(){
-        alert(`This deck has ${deck.traps} traps`);
+        return deck.trapsNumber();
     })
 
     
@@ -44,18 +44,18 @@ function init() {
         cards: 50, 
         monsters: 23,
         monsterNumber() {
-            alert(`${this.monsters}`);
+            alert(`The deck has ${this.monsters} monsters`);
         },
-        magics: 10, 
-        traps: 7, 
+        magics: 10,
+        magicNumber() {
+            alert(`The deck has ${this.magics} magics`);
+        },
+        traps: 7,
+        trapsNumber() {
+            alert(`The deck has ${this.traps} traps`);
+        },
         fusions: 10
     };
 
-    
-  
-
-  
-
-    
 }
 document.addEventListener("DOMContentLoaded", init, false);
