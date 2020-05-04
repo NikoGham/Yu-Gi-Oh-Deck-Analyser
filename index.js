@@ -35,27 +35,75 @@ function init() {
         return deck.trapsNumber();
     })
 
-    
+// Monster Input // 
+    const inp = document.createElement("INPUT");
+// well this is handy... // 
+    inp.setAttribute("type", "number");
+    inp.id = "monsterspace";
+    var x = document.getElementById("inp");
+    x.appendChild(inp);
 
+    const monsinp = document.createElement("BUTTON");
+    monsinp.innerText = "Enter Monsters No.";
+    x.appendChild(monsinp);
+   
+    monsinp.addEventListener("click", function() {
+        alert("done");
+        let y = document.getElementById("monsterspace").value;
+        return deck.monsters = y;
+    });
+    
+// Magic Input //
+    const inpmag = document.createElement("input");
+    inpmag.setAttribute("type", "number");
+    inpmag.id = "magicspace"; 
+    x.insertAdjacentElement("afterend", inpmag);
+// Magic Input Button // 
+    const magBtn = document.createElement("Button");
+    magBtn.innerText = "Enter Magics No.";
+    inpmag.insertAdjacentElement("afterend", magBtn);
+// Magic Event // 
+    magBtn.addEventListener("click", function() {
+        alert("magics entered - thank you");
+        let y = document.getElementById("magicspace").value;
+        return deck.magics = y;
+    });
+
+// Trap Input // 
+    const inptrap = document.createElement("INPUT");
+    inptrap.setAttribute("type", "number"); 
+    inptrap.id = "trapspace";
+    x.insertAdjacentElement("beforebegin", inptrap)
+// Trap Input Button // 
+    const traBtn = document.createElement("BUTTON");
+    traBtn.innerText = "Enter Trap No. "; 
+    inptrap.insertAdjacentElement("afterend", traBtn);
+// Trap Event // 
+    traBtn.addEventListener("click", function(){
+        alert("Traps entered");
+        let y = document.getElementById("trapspace").value;
+        return deck.traps = y;
+    })
 
 
 
     const deck = {
         cards: 50, 
-        monsters: 23,
+        monsters: [],
         monsterNumber() {
             alert(`The deck has ${this.monsters} monsters`);
         },
-        magics: 10,
+        magics: [],
         magicNumber() {
             alert(`The deck has ${this.magics} magics`);
         },
-        traps: 7,
+        traps: [],
         trapsNumber() {
             alert(`The deck has ${this.traps} traps`);
         },
         fusions: 10
     };
+
 
 }
 document.addEventListener("DOMContentLoaded", init, false);
