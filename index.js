@@ -9,9 +9,9 @@ function init() {
     list.id ="monsters";
 // to here // 
     var mons = document.getElementById("monsters");
-
+    
     mons.addEventListener("click", function(){
-        alert(`${deck.monsters}`);
+        return deck.monsterNumber();
     });
     
 // Magic Button // 
@@ -42,12 +42,16 @@ function init() {
 
     const deck = {
         cards: 50, 
-        monsters: 23, 
+        monsters: 23,
+        monsterNumber() {
+            alert(`${this.monsters}`);
+        },
         magics: 10, 
         traps: 7, 
         fusions: 10
     };
 
+    
   
 
   
