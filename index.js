@@ -1,11 +1,51 @@
 function init() {
 
+    var newDiv = document.createElement("DIV");
+    newDiv.id = "trapBrickInfo";
+    document.body.appendChild(newDiv);
+
+    var trapAnalExp = document.createElement("P");
+    trapAnalExp.id = "trapInfo";
+    document.getElementById("trapBrickInfo").appendChild(trapAnalExp);
+    trapAnalExp.innerText = "Click here to find your chance of drawing a full hand of traps on your first turn you fiend.";
+
+    var calculate = document.createElement("BUTTON");
+    document.getElementById("trapBrickInfo").appendChild(calculate);
+    calculate.innerText = "calculate";
+
+   // calculate.addEventListener("click", 
+    //} );
+
+    // worked when moved above the script - var declared for functions not hoisted? 
+
+    var hello = function(num) {
+        if (num < 0){
+            return -1;
+        } else if (num == 0) {
+            return 1;
+        } else {
+            return (num * hello(num - 1));
+        }
+
+    }
+
+    document.getElementById("factResult").innerHTML = hello(3);
+
+    
+    
+
+    
+    
+
+// Monsters No. Button // 
     var btn = document.createElement("BUTTON");
     btn.innerHTML = "Monsters";
     document.body.appendChild(btn);
-    // Don't have to go through this process to add ID but oh well // 
-    var list = document.getElementsByTagName("button")[0];
-    list.id ="monsters";
+// Don't have to go through this process to add ID but oh well - that's interesting that when I added the above button , the monsters button lost it's click event to Calculate. I would believe that is because its position in the script came before this button and so became the new list assignment. // 
+// var list = document.getElementsByTagName("button")[0];
+// list.id ="monsters";
+    btn.id = "monsters";
+
 // to here // 
     var mons = document.getElementById("monsters");
 // methods called with return - also using ES6 // 
@@ -13,7 +53,7 @@ function init() {
         return deck.monsterNumber();
     });
     
-// Magic Button // 
+// Magics No. Button // 
 
     var btn1 = document.createElement("BUTTON");
     btn1.innerHTML = "Magics";
@@ -24,7 +64,7 @@ function init() {
         return deck.magicNumber();
     });
 
-// Trap Button // 
+// Trap No. Button // 
 
     var btn2 = document.createElement("BUTTON");
     btn2.innerHTML = "Traps";
