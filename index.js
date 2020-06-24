@@ -1,5 +1,23 @@
 function init() {
 
+    const deck = {
+        cards: 50, 
+        monsters: [],
+        monsterNumber() {
+            alert(`The deck has ${this.monsters} monsters`);
+        },
+        magics: [],
+        magicNumber() {
+            alert(`The deck has ${this.magics} magics`);
+        },
+        traps: [],
+        trapsNumber() {
+            alert(`The deck has ${this.traps} traps`);
+        },
+        fusions: 10
+    };
+
+
     var newDiv = document.createElement("DIV");
     newDiv.id = "trapBrickInfo";
     document.body.appendChild(newDiv);
@@ -12,30 +30,14 @@ function init() {
     var calculate = document.createElement("BUTTON");
     document.getElementById("trapBrickInfo").appendChild(calculate);
     calculate.innerText = "calculate";
-
-   // calculate.addEventListener("click", 
-    //} );
-
-    // worked when moved above the script - var declared for functions not hoisted? 
-
-    var hello = function(num) {
-        if (num < 0){
-            return -1;
-        } else if (num == 0) {
-            return 1;
-        } else {
-            return (num * hello(num - 1));
-        }
-
+    const trapCalc = function() {
+        hello();
     }
+    document.getElementsByTagName("BUTTON")[0].addEventListener("click", trapCalc);
 
-    document.getElementById("factResult").innerHTML = hello(3);
-
-    
-    
 
     
-    
+
 
 // Monsters No. Button // 
     var btn = document.createElement("BUTTON");
@@ -127,23 +129,25 @@ function init() {
 
 
 
-    const deck = {
-        cards: 50, 
-        monsters: [],
-        monsterNumber() {
-            alert(`The deck has ${this.monsters} monsters`);
-        },
-        magics: [],
-        magicNumber() {
-            alert(`The deck has ${this.magics} magics`);
-        },
-        traps: [],
-        trapsNumber() {
-            alert(`The deck has ${this.traps} traps`);
-        },
-        fusions: 10
-    };
+    var hello = function(num) {
+        if (num < 0){
+            return -1;
+        } else if (num == 0) {
+            return 1;
+        } else {
+            return (num * hello(num - 1));
+        }
 
+    }
+
+    let trapTime = deck.traps;
+    console.log(trapTime);
+
+    document.getElementById("factResult").innerHTML = hello(trapTime);
+
+
+
+  
 
 }
 document.addEventListener("DOMContentLoaded", init, false);
