@@ -4,35 +4,23 @@ var myObj, myJSON, text, obj;
 // deck list save
 const save = document.getElementById("plsSave");
 save.addEventListener("click", function(){
+
+    function newObj(x, y, z, a) {
+        this.name = x;
+        this.nameMag = y;
+        this.nameTrap = z; 
+        this.nameMons = a;
+    }
+   
    let name = document.getElementById("deckName").value;
    let nameMag = document.getElementById("magName").value;
    let nameTrap = document.getElementById("trapName").value;
    let nameMons = document.getElementById("monsName").value;
 
+  
+   let hello = new newObj(name, nameMag, nameTrap, nameMons);
 
-   myObj = {
-       main: [
-           {
-       deckName: name,  
-       magics: nameMag, 
-       traps: nameTrap,
-       monsters: nameMons
-           }
-         
-        ]
-           };
-           /*
-for (let i=0; i<myObj.main.length; i++ ) {
-    if (name!==myObj.main[i]){
-        name = myObj.main[i+1].deckName;
-        nameMag = myObj.main[i+1].magics;
-        nameTrap = myObj.main[i+1].traps;
-        nameMons = myObj.main[i+1].monsters;
-    } else {
-        return alert("Already Entered!") ;
-    }
-    */
-    myJSON = JSON.stringify(myObj);
+    myJSON = JSON.stringify(hello);
     localStorage.setItem("testJSON", myJSON);
 
 
@@ -43,19 +31,19 @@ alert("Saved!");
 const ret = document.getElementById("plsRet");
 ret.addEventListener("click", function(){
 
-text = localStorage.getItem("testJSON");
-obj = JSON.parse(text);
+let text = localStorage.getItem("testJSON");
+let obj = JSON.parse(text);
 
-let deckName = obj.main[0].deckName;
-document.getElementById("demo").innerHTML = deckName
+let deckName = name.name;
+document.getElementById("demo").innerHTML = deckName;
 
-let magNum = obj.main[0].magics;
-document.getElementById("magics").innerHTML = magNum
+let magNum = name.nameMag;
+document.getElementById("magics").innerHTML = magNum;
 
-let trapNum = obj.main[0].traps; 
+let trapNum = name.nameTrap;
 document.getElementById("traps").innerHTML = trapNum
 
-let monsNum = obj.main[0].monsters;  
+let monsNum = name.nameMons;  
 
 document.getElementById("monsters").innerHTML = monsNum
 
